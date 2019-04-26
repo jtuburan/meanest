@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UserModel } from 'src/app/shared/user-model';
 import { FormGroup, FormControl } from '@angular/forms';
 import { UserService } from 'src/app/shared/user.service';
@@ -10,6 +10,7 @@ import { UserService } from 'src/app/shared/user.service';
 })
 export class UserFormComponent implements OnInit {
 
+  @Output() userInfo = new EventEmitter<UserModel>();
   user: UserModel[];
 
   studentForm = new FormGroup({
@@ -26,10 +27,11 @@ export class UserFormComponent implements OnInit {
   onSubmit() {
     // TODO: Use EventEmitter with form value
     //console.warn(this.studentForm.value);
-     this.userService.addUserInfo(this.studentForm.value)
-      .subscribe();  
-    // console.log(this.studentForm.value);
+    // this.userService.addUserInfo(this.studentForm.value)
+     //SS .subscribe();  
+    //console.log(this.studentForm.value);
     //this.studentInfo.emit(this.studentForm.value);    
+    this.userInfo.emit(this.studentForm.value);
   }
 
 }

@@ -1,2 +1,2 @@
-<app-user-form></app-user-form>
-<app-user-list></app-user-list>
+<app-user-form (userInfo)="displayUserInfo($event)"></app-user-form>
+<app-user-list [userInfo]="userInfo"></app-user-list>
