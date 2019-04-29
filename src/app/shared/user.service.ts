@@ -8,10 +8,10 @@ import { UserModel } from './user-model';
 })
 export class UserService {
 
-  _studentInfo = new Subject<UserModel[]>();
+  _studentInfo = new Subject<UserModel>();
   _studentInfo$ = this._studentInfo.asObservable();
   private _getUrl = "http://localhost:3000/api"
-
+  editmode: boolean;
   constructor(private _http: HttpClient) { }
 
   addUserInfo(user: UserModel): Observable<UserModel> {
@@ -28,4 +28,17 @@ export class UserService {
     const url = `${this._getUrl}/delete/${id}`;
     return this._http.delete(url)
   }
+
+  // getSingleUser(id: UserModel): Observable<UserModel[]> {
+  //   const url = `${this._getUrl}/get/${id._id}`;
+  //   console.log(id)
+  //   return this._http.get<UserModel[]>(url);
+  // }
+
+  putUser(userToUpdate: UserModel) {
+    console.log(userToUpdate._id);
+    const url = `${this._getUrl}/update/${userToUpdate._id}`;
+    return this._http.put<UserModel>(url, userToUpdate);
+  }
+  
 }

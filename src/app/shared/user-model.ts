@@ -1,6 +1,8 @@
 export class UserModel {
-    _id: String;
-    name: String;
-    email: String;
-    contact: Number;
+    constructor(
+       public _id: string,
+       public name: string,
+       public email: string,
+       public contact: number,   
+    ) {}
 }

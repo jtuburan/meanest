@@ -39,4 +39,8 @@ export class UserListComponent implements OnInit, OnChanges {
     }
   }
 
+  update(info: UserModel){
+    this.userService._studentInfo.next(info);
+  }
+
 }
