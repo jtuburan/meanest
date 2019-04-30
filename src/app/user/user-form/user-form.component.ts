@@ -48,9 +48,9 @@ export class UserFormComponent implements OnInit {
     } else {
        let editedUser = new UserModel(
           this.userIdToEdit,
-          this.studentForm.value['name'],
-          this.studentForm.value['email'],
-          this.studentForm.value['contact']
+          this.studentForm.value.name,
+          this.studentForm.value.email,
+          this.studentForm.value.contact
         )
         console.log(editedUser);
       this.userService.putUser(editedUser).subscribe();

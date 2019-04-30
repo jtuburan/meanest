@@ -35,8 +35,8 @@ export class UserService {
   //   return this._http.get<UserModel[]>(url);
   // }
 
-  putUser(userToUpdate: UserModel) {
-    console.log(userToUpdate._id);
+  putUser(userToUpdate: UserModel){
+    //console.log(userToUpdate._id);
     const url = `${this._getUrl}/update/${userToUpdate._id}`;
     return this._http.put<UserModel>(url, userToUpdate);
   }

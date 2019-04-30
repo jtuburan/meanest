@@ -48,9 +48,9 @@ router.get('/users',async (req, res) => {
 
 
 //edit
-app.put('/update/:id', async (req, res) => {
+router.put('/update/:id', async (req, res) => {
     //res.send('Got a PUT request at /user')
-    var id = req.params.id;
+    var id = req.params._id;
     const updateUser = await userModel.findById(id);
     if(!updateUser) return;
     updateUser.name = req.body.name;
